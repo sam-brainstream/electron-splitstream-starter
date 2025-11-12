@@ -33,13 +33,12 @@ app.whenReady().then(() => {
 
 // --- Splitstream test function ---
 function startSplitstream() {
-  console.log('🚀 Starting Splitstream test for 60 seconds...')
 
   const split = createSplitstream({
     deepgram_api_key: process.env.DEEPGRAM_API_KEY,
     model: 'nova-3',
     echo_cancellation: true,
-    interim_results: true,
+    interim_results: false,
     splitstream_api_key: process.env.SPLITSTREAM_API_KEY,
   })
 
@@ -59,14 +58,8 @@ function startSplitstream() {
 
   split.on('stderr', (line) => console.log('⚠️ stderr:', line))
   split.on('exit', (code) => console.log('💀 exit:', code))
-
-  setTimeout(() => {
-    console.log('⏹️ stopping after 60 seconds...')
-    split.stop()
-  }, 60000)
 }
 
-// --- macOS lifecycle cleanup ---
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
