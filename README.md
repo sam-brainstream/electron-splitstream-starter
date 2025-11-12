@@ -49,7 +49,7 @@ Run the following command in your Terminal to start the Electron app.
 
 `npm run start`
 
-⚠️ ### **Permissions Warning**
+#### ⚠️ **Permissions Warning**
 
 _If you are running_ `npm run start` inside of VSCode, **the system transcripts will not show up unless you manually give VSCode permission!**
 
