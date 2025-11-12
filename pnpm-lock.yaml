@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      splitstream-node:
-        specifier: ^0.1.5
-        version: 0.1.5
     devDependencies:
       electron:
         specifier: ^39.0.0

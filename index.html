@@ -2,19 +2,27 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <meta
-      http-equiv="X-Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'"
-    />
-    <title>Hello from Electron renderer!</title>
+    <title>Splitstream Transcripts</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background: #fafafa;
+      }
+      #transcripts {
+        white-space: pre-wrap;
+        background: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        height: 500px;
+        overflow-y: auto;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello from Electron renderer!</h1>
-    <p>👋</p>
+    <h1>🎤 Live Transcripts</h1>
+    <div id="transcripts"></div>
+
+    <script src="renderer.js"></script>
   </body>
 </html>

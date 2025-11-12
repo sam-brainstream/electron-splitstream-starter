@@ -1,20 +1,45 @@
 {
-  "name": "my-electron-app",
+  "name": "splitstream-demo",
   "version": "1.0.0",
-  "description": "",
+  "type": "module",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "electron-builder --mac"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.20.0",
   "devDependencies": {
-    "electron": "^39.0.0"
+    "electron": "^39.0.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.secretary.splitstreamdemo",
+    "productName": "SplitstreamDemo",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "hardenedRuntime": true,
+      "entitlements": "entitlements.mac.plist",
+      "entitlementsInherit": "entitlements.mac.plist",
+      "gatekeeperAssess": false,
+      "identity": null,
+      "extendInfo": {
+        "NSAudioCaptureUsageDescription": "Splitstream needs to use your system audio for nefarious purposes"
+      }
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "node_modules/**/*",
+      "package.json"
+    ]
   },
   "dependencies": {
-    "splitstream-node": "^0.1.5"
+    "@secretaryso/splitstream-alpha-05": "^0.2.1",
+    "splitstream-node": "^0.2.1"
   }
 }
